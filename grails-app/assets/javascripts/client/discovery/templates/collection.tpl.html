@@ -1,0 +1,22 @@
+<div class="section">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-parent is-8">
+                <div class="container">
+                    <item-card results-data="vm.collectionContent"></item-card>
+                </div>
+            </div>
+            <div class="tile is-parent is-4">
+                <div class="container">
+                    <leaflet id="mini-map"></leaflet>
+                    <geolocation-info geolocation-data="vm.collectionContent"></geolocation-info>
+                </div>
+            </div>
+        </div>
+
+        <div class="tile is-ancestor">
+            <mediafiles-table data="vm.mediafiles" view="bundle"></mediafiles-table>
+        </div>
+    </div>
+</div>
+<script type="application/ld+json" id="jsoncollection"></script>

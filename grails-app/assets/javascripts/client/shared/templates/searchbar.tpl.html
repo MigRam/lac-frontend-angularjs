@@ -1,0 +1,103 @@
+<!---
+<form ng-submit="vm.doSearch(vm.queryTerm)">
+    <div class="control searchbar has-icons-left">
+            <span class="icon is-left">
+                    <i class="fas fa-search"></i>
+                </span>
+        
+                <input  class="input is-rounded" 
+                        type="text"
+                        name="search"
+                        placeholder="Search" 
+                        ng-model="vm.queryTerm"
+                        ng-model-options="vm.modelOptions" 
+                        ng-change="vm.doSearch(vm.queryTerm)" 
+                        ng-trim="true"
+                        autocomplete="off"
+                        aria-haspopup="true"
+                        aria-controls="dropdown-autocomplete"
+                        list="hints" />
+              
+        <datalist id="hints">
+            <option ng-model="bucket.key" ng-repeat="bucket in vm.hints track by $index" value="{{bucket.key}}">
+                {{ bucket.key }}
+            </option>
+        </datalist>
+    
+    </div>
+</form>
+--->
+
+<!-- search no results found --
+<p ng-if="vm.noResults">
+    <i class="fa fa-exclamation-triangle"></i>
+    <strong>No results found!</strong>
+</p>
+!-- end search no results found --
+
+<p ng-if="vm.queryTerm && vm.total && !vm.noResults">
+    <small>
+        Search results:
+        <em>{{vm.queryTerm}}</em>
+        {{vm.total}} hits.
+    </small>
+</p>!-- end results found -->
+
+<!----
+<strong>User selected {{vm.selectedItem}} </strong>
+-->
+<md-autocomplete 
+    md-search-text="vm.searchText" 
+    md-input-name="searchbar" 
+    md-selected-item="vm.selectedItem"
+    md-items="item in vm.doSearch(vm.searchText)" 
+    md-item-text="item.key"
+    md-selected-item-change="vm.selectedHintChange(vm.selectedItem.key, vm.selectedItem.doc_count)"
+    md-search-text-change="vm.searchTextChange(vm.searchText)" 
+    md-clear-button="true" 
+    md-escape-options="blur"
+    md-delay="500" 
+    md-min-length="3" 
+    placeholder="Search" 
+    input-aria-labelledby="searchDataLabel">
+    <md-item-template>
+        <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.key}} | {{item.doc_count}}</span>
+    </md-item-template>
+    <md-not-found>
+        No results matching "{{vm.searchText}}" were found.
+    </md-not-found>
+
+</md-autocomplete>
+<!--
+<md-chips ng-model="vm.selectedKeys" 
+          md-autocomplete-snap="" 
+          md-transform-chip="vm.transformChip($chip)" 
+          md-require-match="vm.autocompleteRequireMatch">
+<md-chip-template>
+    <span>
+      <strong>{{$chip.key}}</strong>
+      <em>({{$chip.doc_count}})</em>
+    </span>
+  </md-chip-template>
+</md-chips>
+-->
+<!-- results found -->
+
+<div ng-if="!vm.noResults && vm.total && !vm.queryTerm && !vm.selectedFacet">
+    <!-- <small> Search results: {{vm.total}} hits for {{vm.urlParam}}</small> -->
+    <small>
+        <em class="tag is-light">Search results: {{vm.total}} hits.</em>
+    </small>
+</div><!-- end results found -->
+<div ng-if="vm.noResults">
+    <i class="fa fa-exclamation-triangle"></i>
+    <!-- <small>No results found for <em>{{vm.noResultsMsg}}</em></small> -->
+    <small>
+        <strong>No results found.</strong>
+    </small>
+</div>
+<div ng-if="vm.selectedFacet && !vm.noResults" class="is-size-7 is-field">
+    <!-- <span ng-if="vm.urlParam" class="tag is-warning"> {{vm.urlParam}} </span> &nbsp; -->
+    <span class="tag is-info">{{ vm.selectedFacet.category | datatype }}:</span> 
+    <small class="tag is-light">{{vm.selectedFacet.key | datatype }} with {{vm.selectedFacet.count}} hits.</small>
+</div>

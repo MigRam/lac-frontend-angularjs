@@ -1,0 +1,60 @@
+<div class="section" ng-if="!vm.isUserAuthenticated">
+  <div class="container has-text-centered">
+    <div class="column is-8 is-offset-2">
+      <h3 class="title has-text-grey">Login Demo</h3>
+      <div class="box">
+        <form name="authForm" ng-submit="vm.submit()" novalidate>
+          <div class="field">
+            <div class="control has-icons-left">
+              <span class="icon is-small is-left">
+                <i class="fas fa-at"></i>
+              </span>
+              <input class="input is-medium" type="email" placeholder="Your Email" autofocus="" ng-model="vm.user.email" ng-required="true"/>
+              <p class="has-text-grey" ng-show="authForm.email.$invalid && authForm.email.$touched">
+                Must be a valid email.
+              </p>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control has-icons-left">
+               <span class="icon is-small is-left">
+                <i class="fa fa-lock"></i>
+              </span>
+              <input class="input is-medium" type="password" placeholder="Your Password" ng-model="vm.user.password" ng-required="true"/>
+              <p class="has-text-grey" ng-show="authForm.password.$invalid && authForm.password.$touched">
+                Passwort is required.
+              </p>
+            </div>
+          </div>
+
+          <button class="button is-block is-info is-large is-fullwidth" ng-disabled="authForm.$invalid">
+            Login
+          </button>
+        </form>
+      </div>
+      <!--
+      <p class="has-text-grey">
+        <a href="">Sign Up</a> &nbsp;·&nbsp;
+        <a href="">Forgot Password</a> &nbsp;·&nbsp; 
+        <a href="">Need Help?</a>
+      </p>
+    --></div>
+    <div class="column is-8 is-offset-2">
+      <h3 class="subtitle has-text-grey">OR</h3>
+      <div class="box">
+        <button class="button is-block is-primary is-large is-fullwidth" ng-click="vm.login()">
+          Sign in with ORCID
+        </button>
+        <br>
+        <button class="button is-block is-warning is-large is-fullwidth" ng-click="vm.loginProvider('samlLogin')">
+          Sign in with SAML
+        </button>
+        <br>
+        <button class="button is-block is-danger is-large is-fullwidth" ng-click="vm.loginProvider('https://ka3.uni-koeln.de/account/')">
+          Sign in with LAC
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

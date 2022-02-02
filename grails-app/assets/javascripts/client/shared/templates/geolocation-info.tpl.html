@@ -1,0 +1,23 @@
+<div class="menu" ng-repeat="(key, val) in cm.geolocationData">
+  <ul class="menu-list">
+    <li ng-if="val.Country">
+      <span class="menu-label">Country:</span>
+      <span ng-bind-html="val.Country"></span>
+    </li>
+
+    <li ng-if="val.Region">
+      <span class="menu-label">Region:</span>
+      <span ng-bind-html="val.Region"></span>
+    </li>
+
+    <li ng-if="val.Location">
+      <span class="menu-label">Location:</span>
+      <span ng-bind-html="val.Location"></span>
+    </li>
+
+    <li ng-if="val.GeoLocation">
+      <span class="menu-label">Geolocation:</span>
+      <span ng-bind-html="val.GeoLocation"></span>
+    </li>
+  </ul>
+</div>

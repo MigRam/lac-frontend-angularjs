@@ -1,0 +1,306 @@
+.guides-nav {
+  margin-left: 50px;
+}
+
+.navbar-burger.burger {
+  color: #ffffff;
+}
+
+.navbar {
+  height: 4rem;
+  background-color: #253746 !important;
+}
+
+.md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, .md-nav-bar .md-button._md-nav-button.md-unselected  {
+  color: white;
+}
+
+.navbar-right {
+  flex: 1 1 auto;
+}
+
+.navbar-item.navbar-logo {
+  height: 2.5rem;
+  margin: 10px 15px;
+}
+
+.navbar-item img {
+  max-height: 3rem;
+}
+
+.content ul{
+  list-style: none;
+}
+
+.notification a:not(.button):not(.dropdown-item) {
+  text-decoration: none;
+}
+
+.notification a:not(.button):not(.dropdown-item):hover {
+  color: #2366d1;
+}
+
+.card-header-facet {
+  align-items: center;
+  color: #363636;
+  display: flex;
+  flex-grow: 1;
+  font-weight: 700;
+}
+
+.box-facets {
+  background-color: white;
+  color: #4a4a4a;
+  display: block;
+  margin-left: 50px;
+  margin-top: 15px;
+}
+
+.card-facets {
+  background-color: white;
+  color: #4a4a4a;
+  max-width: 100%;
+  position: relative;
+}
+
+.card-content-facet {
+  background-color: transparent;
+  /* padding: 1.5rem; */
+}
+
+.menu-list a {
+  color: #2366d1;
+}
+
+/** map */
+#mini-map {
+  position: relative;
+  border: solid 1px gray;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  height: 20vh;
+}
+
+/** sizes */
+.audio.is-4x50 {
+  height: 4rem;
+  width: 50rem;
+}
+
+.video.is-fullwidth {
+  display: flex;
+  width: 100%;
+}
+
+.image.is-fullwidth {
+  display: flex;
+  width: 100%;
+}
+
+.text.is-fullwidth {
+  width: 100%;
+  height: 600px;
+}
+
+.image.is-180x180 {
+  height: 180px;
+  width: 180px;
+}
+
+/** positions */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 15px;
+}
+
+.box.facets-box {
+  margin: 15px 2rem;
+}
+
+.box.map-box {
+  border: none;
+}
+
+.field {
+  margin: 15px 5px;
+}
+
+.searchbar {
+  margin: 15px auto;
+}
+
+.navbar-end {
+  margin-right: 5rem;
+}
+
+.button.is-white:hover {
+  color: #2366d1;
+}
+
+.card {
+  margin: 15px auto;
+}
+
+.modal-background-transparent {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content.is-large {
+  height: 60%;
+  width: 60%;
+}
+
+.modal-card-foot.video-footer {
+  padding: 0px 0px;
+}
+
+.checkbox input {
+  border: none;
+  background: transparent;
+  display: contents;
+}
+
+/** elements **/
+em {
+  color: tomato;
+}
+
+.active {
+  background-color: tomato;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: calc(0.175em - 1px), 0.75em;
+  margin: 5px auto;
+  text-align: center;
+  white-space: nowrap;
+}
+
+p {
+  margin: 15px auto;
+}
+
+button.is-loading::after,
+.select.is-loading::after,
+.control.is-loading::after,
+.loader {
+  border-right-color: tomato;
+  border-top-color: tomato;
+  height: 1.2em;
+  width: 1.2em;
+}
+
+/** remove arrow from datalist on chrome */
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.has-background-gray {
+  /* background-color: 	#686868 !important; */
+  background-color: #253746;
+  max-height: 3rem;
+}
+
+.has-background-dark {
+  background-color: #253746 !important;
+}
+
+md-toolbar:not(.md-menu-toolbar) {
+  background-color: transparent !important;
+  color: rgba(255,255,255,0.87);
+}
+
+.notification {
+  box-shadow: 0 0 0 0.125em rgba(236, 236, 236, 1);
+  animation: flyintoright .4s backwards;
+  background: #fff;
+  border-radius: 4px;
+  transition: all .2s ease-in-out;
+}
+
+.notification:hover {
+  box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
+}
+
+.searchbar>input.is-white{
+  border: 1px solid rgba(0, 0, 0, .19);
+}
+
+.table__wrapper {
+  overflow-x: auto;
+}
+
+footer {
+  margin-top: 15px;
+
+}
+
+.is-facet {
+  width: 12% !important;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+input.ng-invalid.ng-touched {
+  border: solid 1px #DA3637;
+}
+
+input.ng-valid.ng-touched {
+  border: solid 1px #509D12;
+}
+
+#discovery-map {
+  overflow: hidden;
+  z-index: 1;
+}
+
+a {
+  color: #333333;
+}
+
+a:hover {
+  color: #0f81cc;
+}
+
+.md-toolbar {
+  background-color: #253746;
+}
+
+.align-right {
+  margin-left: 3vw;
+}
+
+.is-field {
+  margin: 10px;
+}
+
+input.ng-valid.ng-touched {
+  border: solid 1px darkgrey;
+}
+
+md-autocomplete input:not(.md-input) {
+  border: solid 1px darkgrey;
+}
+
+.fa, .far, .fas {
+  font-family: "Font Awesome 5 Free";
+  margin: 5px auto;
+}
+
+.md-button._md-nav-button {
+  line-height: 42px;
+  margin: 0 auto;
+  padding: 0 auto;
+  transition: background-color .35s cubic-bezier(.35,0,.25,1);
+}
+
+md-nav-ink-bar {
+  display: none;
+}
+
+.md-button.md-accent {
+  color: tomato;
+  font-weight: bold;
+}

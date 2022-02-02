@@ -1,0 +1,50 @@
+<div class="section">
+    <div class="container">
+        <h1 class="title">ELAN Player Demo - Prototype</h1>
+        <h3 class="subtitle">EAF Player v0.1</h3>
+
+        <div>
+            <audio id="AudioElement" src="{{audiofile}}" controls></audio>
+            Zeitausgaben (in s)<br>
+            current: {{currentTime}} <br>
+            total: {{duration}}
+        </div>
+
+        <div id="rightBar" ng-click="mediaSeek($event);togglePlay();" style="">
+            <!-- ng-click für seek-Funktionalität -->
+
+            <div id="waveform">
+                <!-- class="embed-responsive embed-responsive-16by9" -->
+                <img src="{{waveForm}}" width="100%" height="150px">
+            </div>
+
+            <div id="spectrogram">
+                <img src="{{spectrogram}}" width="100%" height="150px">
+            </div>
+
+            <div id="progressMeter" style="left:{{scrubLeft-2}}px">
+                <!-- -2 um horizontalen Scrollbalken bei Endposition zu vermeiden -->
+            </div>
+
+        </div>
+
+        <!-- Tiers aus JSON ausgeben -->
+        <div ng-repeat="elements in jsonfile">
+            <div id="tiers" class="tier{{$index+1}}" ng-repeat="(key, val) in elements.tiers" ng-style="tierPosition($index+1)">
+                {{val}}
+            </div>
+        </div>
+
+        <!-- Annotations aus JSON ausgeben -->
+        <div ng-repeat="elements in jsonfile">
+            <div ng-repeat="option in elements.annotations" ng-init="zaehler = $index">
+                <div ng-repeat="(key, val) in filterAnnotation(option)">
+                    <div id="annotation" class="annotation{{zaehler}}" ng-style="annotationPosition(zaehler,ts_start,ts_end,a_tier)"
+                        data-toggle="{{a_value}}" title="{{a_value}}">{{a_value}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

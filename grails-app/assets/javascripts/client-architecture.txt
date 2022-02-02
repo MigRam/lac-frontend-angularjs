@@ -1,0 +1,159 @@
+
+Technische Beschrebung der Teil Komponenten
+
+Das Frontend basiert auf einer Grails-Laufzeitumgebung (v. 3.2.4) mit Tomcat-Server und AngularJS (v. 1.7.5) als primäres client-seitiges Framework. Es kommuniziert mit den APIs for Archiving, Annotation, and Analysis of Audio-Visual Media (Query, Object, Media).
+
+Quellcode: https://github.com/cceh/KA3-Frontend
+
+Grails Features:
+Routing der AngularJS SPA über UrlMappings.groovy
+Bereitstellung von Content-Negotiation für CMDI filetypes ("application/x-cmdi+xml") über den ApplicationController
+.
+ └── ka3
+   ├── ApplicationController.groovy
+   └── UrlMappings.groovy
+
+
+AngularJS Features:
+Die SPA wird in der index.gsp des Grails Frameworks initialisiert.
+
+Core Module:
+- client (Main Modules)
+- client.core (Client dependencies)
+- client.shared (stateless components, services und pipes)
+- client.discovery (statefull components)
+- client.guides (Documentation components)
+
+Core Services:
+- api.endpoint.service (Apis Endpoints Service)
+- geomap.service (utilities um leaflet maps zu erzeugen)
+- rest.data.service (Verwendung von $http angularjs service um mit den Odata Apis zu kommunizieren)
+- search.service (Get Anfragen an die Query und Object API)
+- media.service (Anzeige von Videos, Audios und andere Media Dateien)
+
+Core Components
+Haupt Komponenten sind Index, Bundle, Collection und Resource.
+
+Stateless Components
+- search component und service
+- explore top five box component
+- facet search component
+- results component
+- pagination component
+- map component und service (Anzeige des gesamten Archivbestand anhand der Positionbestimmung der Daten (Geolocations))
+- table component (Anzeigen der Daten jeweils von Bundle)
+
+Guides Components
+- Archiv Dokumentation
+.
+├── client
+│   ├── admin
+│   │   ├── client.admin.js
+│   │   ├── components
+│   │   │   └── admin.component.js
+│   │   └── templates
+│   │       └── admin.tpl.html
+│   ├── client.core.js
+│   ├── client.js
+│   ├── client.routes.js
+│   ├── deposit
+│   │   ├── client.deposit.js
+│   │   ├── components
+│   │   │   └── deposit.component.js
+│   │   └── templates
+│   │       └── deposit.tpl.html
+│   ├── discovery
+│   │   ├── client.discovery.js
+│   │   ├── components
+│   │   │   ├── bundle.component.js
+│   │   │   ├── collection.component.js
+│   │   │   ├── discovery.component.js
+│   │   │   └── resource.component.js
+│   │   └── templates
+│   │       ├── bundle.tpl.html
+│   │       ├── collection.tpl.html
+│   │       ├── index.tpl.html
+│   │       └── resource.tpl.html
+│   ├── elanplayer
+│   │   ├── client.elanplayer.js
+│   │   ├── components
+│   │   │   └── elanplayer.component.js
+│   │   └── templates
+│   │       └── elan-player.tpl.html
+│   ├── guides
+│   │   ├── client.guides.js
+│   │   ├── components
+│   │   │   └── guides.nav.component.js
+│   │   └── templates
+│   │       ├── archive-setup.tpl.html
+│   │       ├── data-user-agreement.tpl.html
+│   │       ├── depositing-policy.tpl.html
+│   │       ├── depositor-agreement-english.tpl.html
+│   │       ├── depositor-agreement-german.tpl.html
+│   │       ├── depositor-guidelines.tpl.html
+│   │       ├── format-whitelist.tpl.html
+│   │       ├── guides-nav.tpl.html
+│   │       ├── mission-statement.tpl.html
+│   │       ├── privacy-policy.tpl.html
+│   │       ├── submission-guidelines.tpl.html
+│   │       ├── terms-of-use.tpl.html
+│   │       └── user-guide.tpl.html
+│   ├── services
+│   │   ├── client.services.js
+│   │   ├── components
+│   │   │   └── analyse.component.js
+│   │   └── templates
+│   │       └── analyse.tpl.html
+│   └── shared
+│       ├── client.shared.js
+│       ├── components
+│       │   ├── facets-nav.component.js
+│       │   ├── footer.component.js
+│       │   ├── geolocation.info.component.js
+│       │   ├── icons.component.js
+│       │   ├── item-card.component.js
+│       │   ├── login.component.js
+│       │   ├── navigation.component.js
+│       │   ├── panel.component.js
+│       │   ├── resources.list.component.js
+│       │   ├── results-card.component.js
+│       │   ├── searchbar.component.js
+│       │   └── table.component.js
+│       ├── domain
+│       │   └── Api.js
+│       ├── factories
+│       │   ├── authService.js
+│       │   ├── currentUserService.js
+│       │   ├── dataService.js
+│       │   ├── domainService.js
+│       │   ├── leafletService.js
+│       │   ├── odataMediaService.js
+│       │   ├── odataObjectService.js
+│       │   ├── odataQueryService.js
+│       │   ├── odataService.js
+│       │   ├── underscoreService.js
+│       │   └── utilsService.js
+│       ├── models
+│       │   ├── odata.media.entity.js
+│       │   ├── odata.object.entity.js
+│       │   └── odata.query.entity.js
+│       ├── pipes
+│       │   └── filters.js
+│       └── templates
+│           ├── facets-nav.tpl.html
+│           ├── footer.tpl.html
+│           ├── geolocation-info.tpl.html
+│           ├── icons.tpl.html
+│           ├── impressum.tpl.html
+│           ├── item-card.tpl.html
+│           ├── login.tpl.html
+│           ├── navigation.tpl.html
+│           ├── pagination.tpl.html
+│           ├── panel.tpl.html
+│           ├── resources-list.tpl.html
+│           ├── results-card.tpl.html
+│           ├── searchbar.tpl.html
+│           └── table.tpl.html
+└── client-architecture.txt
+
+26 directories, 83 files

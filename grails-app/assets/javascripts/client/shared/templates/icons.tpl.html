@@ -1,0 +1,35 @@
+<div ng-if="cm.iconData.MetadataType">
+  <span ng-switch="cm.iconData.MetadataType">
+      <span ng-switch-when="Collection">
+          <i class="fas fa-archive fa-2x"></i>
+      </span>
+      <span ng-switch-when="Bundle">
+          <i class="far fa-file fa-2x"></i>
+      </span>
+    </span>
+</div>
+
+<div ng-if="cm.iconData.contentType">
+  <p ng-switch="cm.iconData.contentType">
+    <span ng-switch-when="video/mp4">
+      <i class="far fa-file-video fa-2x"></i>
+    </span>
+    <span ng-switch-when="audio/x-wav">
+      <i class="far fa-file-audio fa-2x"></i>
+    </span>
+    <span ng-switch-when="text/eaf+xml">
+      <i class="far fa-file-alt fa-2x"></i>
+    </span>
+    <span ng-switch-when="application/pdf">
+      <i class="far fa-file-pdf fa-2x"></i>
+    </span>
+    <span ng-switch-when="image/jpeg"> 
+      <i class="far fa-image fa-2x"></i> 
+    </span>
+    <span ng-switch-default> 
+      <i class="fas fa-file fa-2x"></i> 
+    </span>
+  </p>
+</div>
+
+

@@ -1,0 +1,35 @@
+<div class="section">
+  <div class="container">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent is-8">
+        <div class="container">
+          <item-card results-data="vm.bundleContent" collection-data="vm.collectionContent"></item-card>
+          <div class="content">
+            <p>
+              <i class="fa fa-unlock-alt" aria-hidden="true"></i> Open - the
+              data in this bundle is accessible to you. Please read the
+              <a ui-sref="terms-of-use">Terms of Use</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile is-parent is-4">
+        <div class="container">
+          <leaflet id="mini-map"></leaflet>
+          <geolocation-info geolocation-data="vm.bundleContent"></geolocation-info>
+        </div>
+      </div>
+    </div>
+
+    <div class="tite is-ancestor">
+      <div class="container">
+        <mediafiles-table data="vm.mediafiles" view="resource"></mediafiles-table>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+WIP: Bundle JSON-LD
+<script type="application/ld+json" id="jsonbundle"></script>
+-->

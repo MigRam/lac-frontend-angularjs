@@ -1,0 +1,85 @@
+<nav class="navbar has-background-dark is-fullwidth" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item navbar-logo" ui-sref="index" ui-sref-opts="{reload: true}">
+            <img src="./assets/logo-LAC.png" alt="LAC Language Archive Cologne Logo"/>
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="lacNavMenu">
+            <span aria-hidden="true"></span> <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="lacNavMenu" class="navbar-menu">
+        <div class="navbar-start">
+            <div class="navbar-item"></div>
+        </div>
+
+        <div class="navbar-end">
+            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation right">
+                <md-nav-item md-nav-sref="index" name="home" sref-opts="{reload:true, notify:true}">
+                    Home
+                </md-nav-item>
+
+                <md-nav-item md-nav-sref="guides" name="guides">
+                    User Guides
+                </md-nav-item>
+
+                <md-nav-item md-nav-sref="services" name="services">
+                    Analyse Services
+                </md-nav-item>
+
+                <md-nav-item ng-if="!vm.ifLoggedIn" md-nav-sref="login" name="login" sref-opts="{reload:true, notify:true}">
+                    <span class="icon">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </span>
+                    <span> Log In </span>
+                </md-nav-item>
+
+                <md-nav-item ng-if="vm.ifLoggedIn" md-nav-sref="user" name="user" sref-opts="{reload:true, notify:true}">
+                    <span ng-bind-html=" ' ['+ vm.user +']' "></span>
+                </md-nav-item>
+
+                <md-nav-item ng-if="vm.ifLoggedIn" md-nav-click="m.logout();" sref-opts="{reload:true, notify:true}">
+                    <span class="icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                    <span> Log Out </span>
+                </md-nav-item>
+
+            </md-nav-bar>
+
+        </div>
+    </div>
+</nav>
+
+
+<!--
+  <div class="buttons">
+    <a class="button is-light is-outlined" ui-sref="index" ui-sref-opts="{reload: true}">Home</a>
+    <a class="button is-light is-outlined" ui-sref="guides">User Guides</a>
+    !--
+    <a class="button is-light is-outlined" ui-sref="deposit">Deposit</a>
+    <a class="button is-light is-outlined" ui-sref="services">Services</a>
+    --
+    <div ng-if="!vm.ifLoggedIn">
+        <a class="button is-primary" ui-sref="login">
+                <span class="icon">
+                    <i class="fas fa-sign-in-alt"></i>
+                </span>
+            <span> Log In </span>
+        </a>
+    </div>
+
+    <div ng-if="vm.ifLoggedIn">
+        <a class="button is-primary" ui-sref="user">
+            <span ng-bind-html=" ' ['+ vm.user +']' "></span>
+        </a>
+
+        <a class="button is-danger" ng-click="vm.logout();">
+                <span class="icon">
+                    <i class="fas fa-sign-out-alt"></i>
+                </span>
+            <span> Log Out </span>
+        </a>
+    </div>
+-->

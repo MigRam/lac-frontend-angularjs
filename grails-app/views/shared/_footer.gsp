@@ -1,0 +1,119 @@
+<footer class="has-background-dark">
+    <div class="container">
+        <div class="section">
+            <div class="columns is-multiline">
+                <div class="column">
+                    <figure class="center">
+                        <span class="icon image is-96x96">
+                            <a
+                                    href="http://ifl.phil-fak.uni-koeln.de"
+                                    title="Universität zu Köln - Institut für Linguistik - Allgemeine Sprachwissenschaft"
+                                    target="_blank"
+                            >
+                                <asset:image src="logo-UZK.png"/>
+                            </a>
+                        </span>
+                    </figure>
+                </div>
+                <div class="column">
+                    <figure class="center">
+                        <span class="icon image is-180x180">
+                            <a
+                                    href="http://dch.phil-fak.uni-koeln.de/"
+                                    title="Data Center for the Humanities (DCH)"
+                                    target="_blank"
+                            >
+                                <asset:image src="logo-DCH.png" />
+                            </a>
+                        </span>
+                    </figure>
+                </div>
+                <div class="column">
+                    <figure class="center">
+                        <span class="icon image is-96x96">
+                            <a
+                                    href="https://rrzk.uni-koeln.de/"
+                                    title="RRZK: Regionales Rechenzentrum der Universität zu Köln"
+                                    target="_blank"
+                            >
+                                <asset:image src="logo-RRZK.png"/>
+                            </a>
+                        </span>
+                    </figure>
+                </div>
+                <div class="column">
+                    <figure class="center">
+                        <span class="icon image is-128x128">
+                            <a
+                                    href="https://www.clarin.eu/"
+                                    title="CLARIN - European Research Infrastructure for Language Resources and Technology"
+                                    target="_blank"
+                            >
+                                <asset:image src="logo-CLARIN.png"/>
+                            </a>
+                        </span>
+                    </figure>
+                </div>
+                <div class="column">
+                    <article>
+                        <ul class="unstyled-list">
+                            <li>
+                                <a
+                                        class="has-text-white center"
+                                        ui-sref="index"
+                                        ui-sref-opts="{reload: true}"
+                                        title="Home"
+                                >Home</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                        class="has-text-white center"
+                                        ui-sref="impressum"
+                                        title="Impressum"
+                                >Impressum</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                        class="has-text-white center"
+                                        ui-sref="guides"
+                                        title="User Guide"
+                                >User Guide</a
+                                >
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="column">
+                    <article>
+                        <ul class="unstyled-list">
+                            <li>
+                                <a
+                                        class="has-text-white center"
+                                        href="mailto:lac-helpdesk@uni-koeln.de"
+                                        title="LAC-Helpdesk"
+                                >LAC-Helpdesk</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                        class="has-text-white center"
+                                        href="mailto:lac-manager@uni-koeln.de"
+                                        title="LAC-Manager"
+                                >LAC-Manager</a
+                                >
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+            <div class="has-text-centered has-text-white is-marginless">
+                <p>
+                    <i class="fas fa-copyright"></i> 2018 Copyright The University of
+                Cologne - LAC
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

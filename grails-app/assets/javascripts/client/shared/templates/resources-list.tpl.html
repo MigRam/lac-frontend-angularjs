@@ -1,0 +1,50 @@
+<div ng-switch="cm.resourceData.MetadataType">
+    <div ng-switch-when="Collection">
+        <span class="menu-label"> bundles: </span>
+        <!-- resources text -->
+        <span ng-repeat="resource in ::cm.resourceData.ResourceType | filter: {'$':'Metadata'} as metadata track by $index"></span>
+          <span ng-if="metadata.length > 0">
+            <i class="fas fa-file fa-2x"></i>
+            <span class="tag is-success is-rounded">{{ metadata.length }}</span>
+          </span>
+      </span>
+    </div>
+    
+    <div ng-switch-when="Bundle">
+        <span class="menu-label"> resources: </span>
+        <!-- resources audios -->
+        <span ng-repeat="resource in ::cm.resourceData.ResourceMimeType | filter: {'$':'audio/x-wav'} as audios track by $index"></span>
+        <span ng-if="audios.length > 0">
+          <i class="far fa-file-audio fa-2x"></i>
+          <span class="tag is-warning is-rounded">{{ audios.length }}</span>
+        </span>
+
+        <!-- resources videos -->
+        <span ng-repeat="resource in ::cm.resourceData.ResourceMimeType | filter: {'$':'video/mp4'} as videos track by $index"></span>
+        <span ng-if="videos.length > 0">
+          <i class="far fa-file-video fa-2x"></i>
+          <span class="tag is-success is-rounded">{{ videos.length }}</span>
+        </span>
+
+      <!-- resources text -->
+      <span ng-repeat="resource in ::cm.resourceData.ResourceMimeType | filter: {'$':'text/x-eaf+xml'} as file track by $index"></span>
+      <span ng-if="file.length > 0">
+        <i class="far fa-file-alt fa-2x"></i>
+        <span class="tag is-success is-rounded">{{ file.length }}</span>
+      </span>
+
+      <!-- resources image -->
+      <span ng-repeat="resource in ::cm.resourceData.ResourceMimeType | filter: {'$':'image/jpeg'} as image track by $index"></span>
+      <span ng-if="image.length > 0">
+        <i class="far fa-image fa-2x"></i>
+        <span class="tag is-link is-rounded">{{ image.length }}</span>
+      </span>
+
+      <!-- resources pdf -->
+      <span ng-repeat="resource in ::cm.resourceData.ResourceMimeType | filter: {'$':'application/pdf'} as pdf track by $index"></span>
+      <span ng-if="pdf.length > 0">
+        <i class="far fa-file-pdf fa-2x"></i>
+        <span class="tag is-dark is-rounded">{{ pdf.length }}</span>
+      </span>
+    </div>
+</div>

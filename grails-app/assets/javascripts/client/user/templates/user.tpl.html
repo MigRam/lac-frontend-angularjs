@@ -1,0 +1,30 @@
+<div class="section">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="media" ng-if="vm.authenticatedUser">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <i class="far fa-user-circle fa-3x"></i>
+                        </figure>
+                    </div>
+                    <div class="media-content" ng-if="vm.authSamlUser">
+                        <h1 class="title">{{vm.authenticatedUser.name}}</h1>
+                        <p class="subtitle is-5" ng-bind-html="'Email: ' + vm.authenticatedUser.email"></p>
+                        <p class="subtitle is-5" ng-bind-html="'institution: ' + vm.authenticatedUser.institution"></p>
+                        <p class="subtitle is-6" ng-bind-html="'ID: '+  vm.authenticatedUserId"></p>
+                    </div>
+                    <div class="media-content">
+                        <h1 class="title">{{vm.authenticatedUserName}}</h1>
+                        <p class="subtitle is-6" ng-bind-html="'ID: '+  vm.authenticatedUserId"></p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <a class="button is-warning" ui-sref="deposit">Go to Deposit</a>
+                    <a class="button is-warning" ui-sref="services">Go to Analyse Services</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

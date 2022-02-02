@@ -1,0 +1,34 @@
+<!--
+<div class="card-facets">
+
+  <button class="button" ng-click="vm.toggleFacetCard();">
+    {{::vm.facetHeader | uppercase}}
+  </button>
+
+  <div ng-if="!vm.facetCard">
+    <div class="card-content-facet" ng-repeat="facet in vm.facetData | limitList:3:vm.facetlist" ng-class="{'active' : isFacetChecked}">
+      <label class="checkbox">
+        <input type="checkbox" ng-checked="isFacetChecked" ng-model="isFacetChecked" ng-init="isFacetChecked = false" ng-click="vm.selectFacet(vm.facetCategory, facet, !isFacetChecked)"/>
+        <span class="label is-size-7">
+          {{ facet.key | datatype }}
+          <span class="tag is-info is-rounded" ng-bind-html="facet.doc_count"></span>
+        </span>
+      </label>
+    </div>
+    <button ng-if="vm.facetData.length > 3" class="button field is-primary is-small is-rounded" ng-bind="vm.facetlist && 'Hide List' || 'Show All'" ng-click="vm.toggleList()"></button>
+  </div>
+</div>
+
+-->
+<div class="align-right">
+  <a class="md-primary" ng-bind-html="::vm.facetHeader | uppercase" ng-click="vm.toggleFacetCard()"></a>
+  <md-divider></md-divider>
+  <div ng-if="!vm.facetCard">
+    <div ng-repeat="facet in vm.facetData | limitList:3:vm.facetlist track by $index">
+      <a class="is-size-7" ng-click="vm.selectFacet(vm.facetCategory, facet, $index+1)">{{ facet.key | datatype }} <span class="tag" ng-bind-html="facet.doc_count"></span></a>
+    </div>
+    <md-button ng-if="vm.facetData.length > 3" ng-click="vm.toggleList()">
+      <small ng-bind-html="vm.facetlist && 'Hide List' || 'Show All'"></small>
+    </md-button>
+  </div>
+</div>

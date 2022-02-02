@@ -1,0 +1,76 @@
+<div ng-if="vm.total > 10">
+    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+    </dir-pagination-controls>
+</div>
+<md-card dir-paginate="data in vm.data|filter:vm.sortKey|itemsPerPage:vm.itemsPerPage">
+    <md-card-header>
+        <md-card-avatar>
+            <icon-list icon-data="data"></icon-list>
+        </md-card-avatar>
+        <md-card-header-text>
+            <a class="md-title is-size-5" ng-bind-html="data.Title" ng-click="vm.viewData(data.MetadataType, data.id)"></a>
+            <span class="md-subhead">
+                <span class="md-subhead menu-label" ng-bind-html="data.MetadataType"></span>
+            </span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+    <p ng-repeat="description in data.Description track by $index">
+        <span ng-bind-html="description"></span>
+    </p>
+    <small ng-if="data.Keywords" ng-bind-html="'Keywords: ' + data.Keywords.join(', ')"></small><br>
+    <small ng-if="data.ObjectLanguage" ng-bind-html="'Languages: ' + data.ObjectLanguage.join(', ')"></small><br>
+    <small ng-if="data.Country" ng-bind-html="'Country: ' + data.Country.join(', ')"></small>
+    <small ng-if="data.Region" ng-bind-html="'Region: ' + data.Region.join(', ')"></small>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="start center">
+        <md-button ng-disabled="true"> 
+            <resources-list resource-data="data"></resources-list> 
+        </md-button>
+    </md-card-actions>
+
+   
+   
+    <!--
+         <pre>{{vm.data | json}}</pre>
+    <md-list-item>
+        <icon-list icon-data="hit"></icon-list> &nbsp;&nbsp;
+        <a class="is-size-4" ng-bind-html="hit['@a5.highlight'].Title || hit.Title" ng-click="vm.viewData(hit.MetadataType, hit.id)"></a>
+        <span ng-if="hit.MetadataType">
+            &nbsp;
+            <span class="menu-label" ng-bind-html="hit['@a5.highlight'].MetadataType || hit.MetadataType"></span>
+        </span>
+        <md-divider></md-divider>
+    </md-list-item>
+    <md-list-item>
+        <ul>
+            <li ng-if="hit.Description">
+                <p ng-repeat="description in hit.Description track by $index">
+                    <span ng-bind-html="description"></span>
+                </p>
+            </li>
+            <li ng-if="hit.Keywords">
+                <span class="menu-label"> keywords: </span>
+                <span ng-bind-html="hit['@a5.highlight'].Keywords.join(', ') || hit.Keywords.join(', ')"></span>
+            </li>
+            <li ng-if="hit.ObjectLanguage">
+                    <span class="menu-label"> language: </span>
+                    <span ng-bind-html="hit['@a5.highlight'].ObjectLanguage.join(', ') || hit.ObjectLanguage.join(', ')"></span>
+            </li>
+            <li ng-if="hit.Region">
+                <span class="menu-label"> Region: </span>
+                <span ng-bind-html="hit['@a5.highlight'].Region || hit.Region"></span>
+            </li>
+        </ul>
+    </md-list-item>
+    <md-list-item>
+        <resources-list resource-data="hit"></resources-list>
+    </md-list-item>
+-->
+</md-card>
+
+
+<div ng-if="vm.total > 10">
+    <dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+    </dir-pagination-controls>
+</div>

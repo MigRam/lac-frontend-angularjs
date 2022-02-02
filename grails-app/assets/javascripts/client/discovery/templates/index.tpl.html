@@ -1,0 +1,74 @@
+<div class="tile is-ancestor">
+  <div class="tile is-parent is-2">
+    <span class="container" ng-if="vm.data">
+        <md-toolbar>
+          <md-button class="md-raised md-accent" ng-click="vm.reset()"> Clear All </md-button>
+        </md-toolbar>
+        <md-content>
+          <facet-nav facet-category="MetadataType" facet-header="top level"
+            facet-data="vm.facetData.MetadataType.buckets" data="vm.data" total="vm.total" no-results="vm.noResults"
+            no-results-msg="vm.noResultsMsg" selected-facet="vm.selectedFacet"></facet-nav>
+
+          <facet-nav facet-category="ObjectLanguage" facet-header="language"
+            facet-data="vm.facetData.ObjectLanguage.buckets" data="vm.data" total="vm.total" no-results="vm.noResults"
+            no-results-msg="vm.noResultsMsg" selected-facet="vm.selectedFacet"></facet-nav>
+
+          <facet-nav facet-category="Country" facet-header="countries" facet-data="vm.facetData.Country.buckets"
+            data="vm.data" total="vm.total" no-results="vm.noResults" no-results-msg="vm.noResultsMsg"
+            selected-facet="vm.selectedFacet"></facet-nav>
+
+          <facet-nav facet-category="Region" facet-header="regions" facet-data="vm.facetData.Region.buckets"
+            data="vm.data" total="vm.total" no-results="vm.noResults" no-results-msg="vm.noResultsMsg"
+            selected-facet="vm.selectedFacet"></facet-nav>
+
+          <facet-nav facet-category="ResourceMimeType" facet-header="data types"
+            facet-data="vm.facetData.ResourceMimeType.buckets" data="vm.data" total="vm.total" no-results="vm.noResults"
+            no-results-msg="vm.noResultsMsg" selected-facet="vm.selectedFacet"></facet-nav>
+
+          <facet-nav facet-category="Keywords" facet-header="keywords" facet-data="vm.facetData.Keywords.buckets"
+            data="vm.data" total="vm.total" no-results="vm.noResults" no-results-msg="vm.noResultsMsg"
+            selected-facet="vm.selectedFacet"></facet-nav>
+        </md-content>
+    </span>
+  </div>
+
+  <div class="tile is-parent is-4">
+    <div class="container">
+      <!-- Search -->
+      <div class="is-field">
+          <searchbar data="vm.data" facet-data="vm.facetData" total="vm.total" no-results="vm.noResults"
+          no-results-msg="vm.noResultsMsg" selected-facet="vm.selectedFacet"></searchbar>
+      </div>
+       <!-- <md-button class="md-accent" ng-click="vm.toggleLeft()">Facet Navigation</md-button> -->
+      <!-- End Search -->
+      <!-- Map -->
+      <leaflet id="discovery-map" defaults="discovery"></leaflet>
+      <!-- End Map -->
+      <!-- Results Card -->
+      <results-card data="vm.data" total="vm.total"></results-card>
+      <!-- End Results Card -->
+      <!--- Explore Top Five -->
+      <span ng-if="vm.isPanelBoxActive && !vm.data">
+        <p class="subtitle is-size-7 field" ng-bind-html="::vm.explorePanelHint"></p>
+        <div class="columns">
+          <!-- Languages -->
+          <div class="column">
+            <panel header="languages" explore-data="vm.exploreData.ObjectLanguage.buckets" facet-data="vm.facetData"
+              data="vm.data" total="vm.total" styles="title is-size-5"></panel>
+          </div>
+          <!-- Countries -->
+          <div class="column">
+            <panel header="countries" explore-data="vm.exploreData.Country.buckets" facet-data="vm.facetData"
+              data="vm.data" total="vm.total" styles="title is-size-5"></panel>
+          </div>
+          <!-- Keywords -->
+          <div class="column">
+            <panel header="keywords" explore-data="vm.exploreData.Keywords.buckets" facet-data="vm.facetData"
+              data="vm.data" total="vm.total" styles="title is-size-5"></panel>
+          </div>
+        </div>
+      </span>
+      <!-- End Explore Top Five ---->
+    </div>
+  </div>
+</div>

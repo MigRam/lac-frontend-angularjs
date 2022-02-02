@@ -1,0 +1,63 @@
+/* Styles Responsive */
+@media screen and (max-width: 599px) {
+  #discovery-map {
+    margin: 0 auto;
+    border: solid 1px #00b1b3;
+    height: 50vh;
+    width: 85vw;
+  }
+
+  .navbar-brand img {
+    width: 170px;
+    height: 50px;
+    margin: 0 30px;
+  }
+}
+
+@media (min-width: 600px) {
+  #discovery-map {
+    margin: 0 auto;
+    border: solid 1px #00b1b3;
+    height: 50vh;
+    width: 85vw;
+  }
+
+}
+
+@media (min-width: 900px) {
+  #discovery-map {
+    margin: 0 auto;
+    border: solid 1px #00b1b3;
+    height: 50vh;
+    width: 65vw;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  #discovery-map {
+    margin: 0 auto;
+    border: solid 1px #00b1b3;
+    height: 50vh;
+    width: 65vw;
+  }
+
+}
+
+@media (min-width: 1800px) {
+  #discovery-map {
+    margin: 0 auto;
+    border: solid 1px #00b1b3;
+    height: 50vh;
+    width: 65vw;
+  }
+
+}
+
+@media screen and (max-width: 1087px) {
+  .navbar-menu {
+    background-color: #4a4a4a;
+    box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+    padding: 0.5rem 0;
+}
+}

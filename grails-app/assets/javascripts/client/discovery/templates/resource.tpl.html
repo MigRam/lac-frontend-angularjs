@@ -1,0 +1,96 @@
+<div class="section">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <p class="icon">
+                            <icon-list icon-data="vm.resourceContent"></icon-list>
+                        </p>
+                    </div>
+
+                    <div class="media-content">
+                        <div class="menu">
+                            <ul class="menu-list">
+                                <li>
+                                    <span class="title is-size-3" ng-bind-html="vm.resourceContent.label.split('.')[0]"></span>
+                                </li>
+                                <li>
+                                    <span class="subtitle is-size-6" ng-bind-html="'ID: '+ vm.resourceContent.id"></span>
+                                </li>
+                                <li>
+                                    <span class="subtitle is-6" ng-bind-html="'Filetype: ' + (vm.resourceContent.contentType | datatype)"></span>
+                                </li>
+                                <li>
+                                    <span class="subtitle is-6" ng-bind-html="'File updated: ' + (vm.resourceContent.fileUpdated | date)"></span>
+                                </li>
+                                <li>
+                                    <span class="subtitle is-6">
+                                        This file is part of :
+                                        <div>
+                                            <i class="fas fa-link"></i>
+                                            <md-button class="md-primary" ng-click="vm.goToParent('bundle', vm.fileIsPartOf[1].id)" ng-bind-html="vm.fileIsPartOf[0].bundle | uppercase"></md-button>
+                                        </div>
+                                  </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="media-right">
+                        <button class="button is-large is-dark is-outlined modal-button" ng-click="$event.preventDefault(); vm.downloadFile(vm.resourceContent.id)">
+                            <i class="fas fa-file-download"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- file viewer -->
+        <div ng-switch="vm.resourceContent.contentType">
+            <div ng-switch-when="video/mp4">
+                <video controls class="video is-fullwidth">
+                    <source ng-src="{{vm.src}}" type="video/mp4;  video/mpeg; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" />
+                    <source ng-src="{{vm.src}}" type="video/webm; codecs=&quot;vp8, vorbis&quot;" />
+                </video>
+            </div>
+
+            <div ng-switch-when="audio/x-wav">
+                <audio controls class="audio is-4x50">
+                    <source ng-src="{{vm.src}}" />
+                </audio>
+            </div>
+
+            <div ng-switch-when="text/eaf+xml">
+                <object data="{{vm.src}}" type="text/html" class="text is-fullwidth">
+                    <iframe ng-src="{{vm.src}}" class="text is-fullwidth">
+                        <p>
+                            Your browser does not support PDFs.
+                            <a ng-href="{{vm.src}}" download>Download the file: {{ vm.resourceContent.label}}</a>.
+                        </p>
+                    </iframe>
+                </object>
+            </div>
+
+            <div ng-switch-when="application/pdf">
+                <object data="{{vm.src}}" src="{{vm.src}}" class="text is-fullwidth">
+                    <iframe ng-src="{{vm.src}}">
+                        <p>
+                            Your browser does not support PDFs.
+                            <a ng-href="{{vm.src}}" download>Download the PDF</a>.
+                        </p>
+                    </iframe>
+                </object>
+            </div>
+
+            <div ng-switch-when="image/jpeg">
+                <picture class="image is-16by9">
+                    <source srcset="{{vm.src}}" />
+                    <img ng-src="{{vm.src}}" alt="{{vm.resourceContent.label}}" />
+                </picture>
+            </div>
+
+            <div ng-switch-default></div>
+        </div>
+    </div>
+</div>

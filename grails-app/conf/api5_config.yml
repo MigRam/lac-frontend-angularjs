@@ -1,0 +1,17 @@
+# API5 endpoints. This config file will be ignored by Jenkins-Job!
+
+# "lac": Mini-Testdatenbestand für CLARIN Zertifizierung, der auch auf grails-prod erscheinen wird
+# "lac2": CMDI/BLAM Bestand der Datenmigration
+# "lac3": IMDI Bestand für Frontendentwicklung (@Jörg/@Miguel: früher "lac")
+
+queryapi:
+    endpoint: 'https://grails-prod.rrz.uni-koeln.de/ka3-a5-core/api/query/lac'
+---
+objectapi:
+    endpoint: 'https://grails-prod.rrz.uni-koeln.de/ka3-a5-core/api/object/lac'
+---
+mediapi:
+    endpoint: 'https://grails-prod.rrz.uni-koeln.de/ka3-a5-core/api/media/lac'
+---
+analyse:
+    endpoint: 'https://grails-dev.rrz.uni-koeln.de/ka3-analyse/jobOrder'

@@ -1,0 +1,77 @@
+<div class="section">
+  <div class="container">
+    <div class="content">
+      <a class="button is-link" ui-sref="user">Go Back to User</a>
+      <a class="button is-primary" ui-sref="deposit">Go to Deposit</a>
+
+      <h1 class="title">LAC Analysis Services Demo - Prototype</h1>
+      <h2 class="subtitle is-6">
+        Segmentierung von Audio und Dokumenten
+      </h2>
+
+      <form action="https://grails-dev.rrz.uni-koeln.de/ka3-analyse/job/createJob" method="post" target="_blank" id="AnalyseForm">
+        <label for="handle">Handle (Ordnerpfad/URN) </label>
+        <input name="handle" value="" /> <br />
+        <label for="user">E-Mail</label>
+        <input name="user" value="{{ vm.currentUser.email }}" /> <br />
+        <label for="method">Methode</label>
+        <select name="method" id="method">
+          <option value="1">
+            Segmentierung von Dokumenten
+          </option>
+          <option value="2">
+              Segmentierung von Audiodaten
+          </option>
+        </select>
+        <br /><br />
+        <!--
+        <input
+          clasS="button is-link"
+          type="submit"
+          name="Send Compute Job"
+          value="Send Compute Job"
+          id="Send Compute Job"
+        />
+        -->
+        <button class="button is-link" ng-click="vm.submitForm()">Send Compute Job</button>
+      </form>
+
+      <div>
+        <p>List of currently compute jobs</p>
+        <table class="table is-bordered is-hovered">
+          <thead>
+            <th></th>
+            <th>Job Type</th>
+            <th>Filename</th>
+            <th>User</th>
+          </thead>
+          <tbody ng-repeat="order in vm.orders">
+            <tr>
+              <td>
+                <span ng-switch="order.method.id">
+                  <div ng-switch-when="1">
+                    <span class="icon">
+                      <i class="fas fa-file fa-2x"></i>
+                    </span>
+                  </div>
+                  <div ng-switch-when="2">
+                    <span class="icon">
+                      <i class="far fa-file-audio fa-2x"></i>
+                    </span>
+                  </div>
+                </span>
+              </td>
+              <td>{{ order.handle.split("/")[5] }}</td>
+              <td>
+                <a ng-click="vm.getJobOrder(order.id)">
+                  {{ order.handle.split("/")[6] }}
+                </a>
+              </td>
+              <td>{{ order.user }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

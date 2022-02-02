@@ -1,0 +1,73 @@
+<div class="menu">
+  <div ng-repeat="(key, val) in cm.resultsData track by $index">
+    <div ng-if="val.MetadataType">
+      <i class="far fa-file fa-2x"></i>
+      <span class="title" ng-bind-html="val.Title"></span>
+    </div>
+
+      <ul class="menu-list" ng-repeat="(key,val) in cm.collectionData">
+          <p ng-if="cm.collectionData">
+              <span class="menu-label">Is part of collection :</span>
+              <div>
+                <i class="fas fa-link"></i>
+                <md-button class="md-primary" ng-bind-html="val.Title | uppercase" ng-click="cm.viewCollection(val.MetadataType, val.id)"></md-button>
+              </div>
+          </p>
+      </ul>
+
+    <ul class="menu-list">
+      <p ng-if="val.Keywords">
+        <span class="menu-label">keywords:</span>
+        <span class="is-size-6" ng-bind-html="val.Keywords.join(', ')"></span>
+      </p>
+    </ul>
+
+    <ul class="menu-list">
+      <p ng-if="val.ObjectLanguage">
+        <span class="menu-label">languages:</span>
+        <span class="is-size-6" ng-bind-html="val.ObjectLanguage.join(', ')"></span>
+      </p>
+    </ul>
+
+    <ul class="menu-list" ng-if="val.Description">
+      <p class="is-size-6" ng-repeat="desc in val.Description track by $index">
+        <span class="menu-label">description: </span>
+          <span ng-text-truncate="desc" ng-tt-chars-threshold="250"></span>
+        <!-- {{ desc }} -->
+      </p>
+    </ul>
+    <ul class="menu-list">
+      <li ng-if="val.ProjectName">
+        <p>
+          <span class="menu-label"
+            >Project Information:
+          </span>
+          <span ng-bind-html="val.ProjectName"></span>
+        </p>
+
+        <p ng-if="val.ProjectDescription">
+          <span class="menu-label">Project Description:</span>
+          <span class="text-justify" ng-text-truncate="val.ProjectDescription[0]" ng-tt-chars-threshold="150"></span>
+          <!-- <span class="text-justify" ng-bind-html="val.ProjectDescription"></span> -->
+        </p>
+      </li>
+    </ul>
+
+    <ul class="menu-list">
+      <li ng-if="val.ResourceMimeType">
+        <resources-list resource-data="val"></resources-list>
+      </li>
+    </ul>
+
+      <ul class="menu-list">
+        <li ng-if="val.RecordingDate">
+            <p>
+                <span class="menu-label">
+                    Recording Date:
+                </span>
+                <span ng-bind-html="val.RecordingDate"></span>
+            </p>
+        </li>
+      </ul>
+  </div>
+</div>

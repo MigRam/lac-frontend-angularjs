@@ -1,0 +1,87 @@
+<div class="tile is-ancestor">
+  <div class="tile is-parent is-2"><guides-nav></guides-nav></div>
+  <div class="tile is-parent is-8">
+    <div class="section">
+      <div class="container">
+        <div class="content">
+          <article>
+            <h1>Archive setup</h1>
+            <h2>Functional Architecture</h2>
+            <p>
+              The LAC uses the KA³ repository software as the underlying
+              repository framework. The LAC repository complies with the OAIS
+              reference model’s tasks and functions. Moreover, the LAC’s KA3
+              repository software is compliant with the Reference Model for an
+              Open Archival Information System (OAIS). The KA³ repository
+              software implements open interface standards such as the Open Data
+              Protocol (ODATA), the International Image Interoperability
+              Framework (IIFS), OAI PMH, and the Security Assertion Markup
+              Language (SAML) based Shibboleth system. The LAC with its partner
+              <a href="https://rrzk.uni-koeln.de/" target="_blank">RRZK</a> is
+              actively developing the KA³ repository software within the joint
+              BMBF funded KA3 project.
+            </p>
+            <p>
+              Figure 1 shows the main functional entities of the LAC according
+              to the OAIS Reference Model [2, Section 4.1].
+            </p>
+          </article>
+
+          <figure class="image">
+            <img
+              src="./assets/setup_OAIS.png"
+              style="position: relative; height: 30rem; width: 50rem;"
+            />
+          </figure>
+
+          <article>
+            <p>
+              Archive Information Packages (AIPs) together with descriptive and
+              technical metadata in self-contained XML files are stored in an
+              redundant files system (Archival Storage). Descriptive and
+              technical metadata as well as annotations are represented in an
+              ElasticSearch instance and accessible via an ODATA compliant API.
+              Bundles are the main archival objects in LAC and a bundle
+              typically consists of multiple digital file objects, which are
+              related with each other (media files and annotations). <br />
+              For Data Management LAC uses an ElasticSearch database to enable
+              efficient querying, navigation, and checking of referential
+              integrity. Ingest is supported by means of a simple Administration
+              Interface (currently only accesible to archive managers) with
+              scripts for bulk ingest. The LAC uses bulk ingest, which is fed by
+              custom ingest pipelines generate Archival Information Packages
+              (AIPs) from Submission Information Packages (SIPs) provided by the
+              data producers. Figure 2 documents the LAC ingest procedure.
+            </p>
+          </article>
+
+          <figure class="image">
+            <img
+              src="./assets/ingest.png"
+              style="position: relative; height: 100rem; width: 60rem;"
+            />
+            <figcaption class="figure-caption text-left text-primary">
+              LAC ingest procedure
+            </figcaption>
+          </figure>
+
+          <article>
+            <p>
+              For Access the LAC relies the Open Data Protocol compliant Object
+              and Query APIs which support a Web interface for search and
+              presentation. The data consumer has direct access to the archived
+              objects via the web interface that uses the KA³ International
+              Image Interoperability Framework (IIFS) based media API for
+              presentation and can download the resources through the web
+              interface. <br />
+              These dissemination information packets (DIPs) either consist of
+              individual datastreams for metadata and data, or a packed archive
+              of the the bundle. In addition, the LAC supports harvesting of its
+              metadata via its OAI-PMH interface.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

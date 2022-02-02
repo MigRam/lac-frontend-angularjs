@@ -1,0 +1,19 @@
+<!--
+<h1 class="{{::vm.styles}}" ng-bind-html="::vm.header | uppercase"></h1>
+<p ng-repeat="item in vm.exploreData | limitList:5:vm.list">
+  <a ng-click="vm.search(item.doc_count, item.key)">
+    {{ item.key | datatype }} &nbsp;
+    <span ng-bind-html="item.doc_count"></span>
+  </a>
+</p>
+<md-button class="md-raised" ng-if="vm.exploreData.length > 5" ng-bind="vm.list && 'Hide List' || 'Show All'" ng-click="vm.toggleList()"></md-button>
+-->
+
+    <h1 class="{{::vm.styles}}" ng-bind-html="::vm.header | uppercase"></h1>
+    <div ng-repeat="item in vm.exploreData | limitList:5:vm.list">
+      <a ng-click="vm.search(item.doc_count, item.key)">
+        {{ item.key | datatype }} &nbsp;
+        <span class="tag" ng-bind-html="item.doc_count"></span>
+      </a>
+    </div>
+    <md-button class="md-raised" ng-if="vm.exploreData.length > 5" ng-bind="vm.list && 'Hide List' || 'Show All'" ng-click="vm.toggleList()"></md-button>
